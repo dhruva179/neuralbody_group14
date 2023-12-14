@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🚀 WebRTC Odyssey 🌌</title>
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(135deg, #3d0c40, #03045e, #023e8a, #64c8d0, #0d335d);
+            background-size: 1000% 1000%;
+            animation: gradientBG 15s ease infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        }
+        .column {
+            flex: 1;
+            max-width: 45%;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+            position: relative;
+            border: 2px solid #ffcc00;
+        }
+        .column:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 15px;
+            border-style: solid;
+            border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+        }
+        .column:hover {
+            transform: scale(1.05);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            filter: brightness(110%) contrast(120%);
+        }
+        .title {
+            color: #ffcc00;
+            margin-bottom: 30px;
+            font-size: 36px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        #videoFile {
+            width: 100%;
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 4px solid #ffcc00;
+            border-radius: 10px;
+            font-size: 24px;
+            background: rgba(255, 204, 0, 0.2);
+            color: #ffcc00;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        #videoFile:hover {
+            background-color: rgba(255, 204, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h2 class="title">Sender</h2>
+            <input type="file" id="videoFile" accept="video/*" />
+            <video id="senderVideo" controls autoplay muted></video>
+        </div>
+        
+        <div class="column">
+            <h2 class="title">Receiver</h2>
+            <video id="receiverVideo" controls autoplay></video>
+        </div>
+    </div>
+
+    <script src="webrtc.js"></script>
+</body>
+</html>
